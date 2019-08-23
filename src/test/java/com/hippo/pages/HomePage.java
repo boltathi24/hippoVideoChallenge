@@ -1,5 +1,8 @@
 package com.hippo.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +29,8 @@ public class HomePage extends Utility {
 	
 	public By sendEmailBtn=By.id("sendEmailBtn");
 	public By subjectTxtBox=By.id("emailSubject");
+	
+	public By videoTitle=By.xpath("//div[@class='video-cover hippo-video-cat-list '][1]//h6[@class='vdo-title play-btn']");
 	
 	
 	
@@ -75,8 +80,9 @@ public class HomePage extends Utility {
 	 		tryElementToBeGone(getStartedBtn);
 	 	}
 		
-		public String sendSampleVideoToEmail(String email) throws InterruptedException
+		public List<String> sendSampleVideoToEmail(String email) throws InterruptedException
 		{
+			List<String> dataPosted=new ArrayList<String>();
 			element(videoLibraryLink).click();
 			move(element(By.xpath("//h6[text()='Video Templates']//ancestor::td")));
 			move(element(viewDetailOfVideoTemplates));
@@ -84,6 +90,8 @@ public class HomePage extends Utility {
 			
 			waitForElement(videoList);
 			move(elementList(videoList).get(0));
+			String videoTitleTxt=elementList(videoTitle).get(0).getText();
+			dataPosted.add(videoTitleTxt);
 			clickOn(elementList(videoLink).get(0));
 			
 			element(videoCampignsLink).click();
@@ -101,7 +109,8 @@ public class HomePage extends Utility {
 			element(sendEmailBtn).click();
 			
 			Assert.assertTrue(element(By.className("success-msg-container")).getText().contains("Video campaign launched successfully for 1 contacts!"));
-			return subj+firstName;
+			dataPosted.add(subj+firstName);
+			return dataPosted;
 			
 		}
 		

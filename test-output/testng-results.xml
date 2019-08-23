@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="168138" started-at="2019-08-23T06:01:58Z" finished-at="2019-08-23T06:04:46Z">
+  <suite name="Default suite" duration-ms="170007" started-at="2019-08-23T06:34:43Z" finished-at="2019-08-23T06:37:33Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="168138" started-at="2019-08-23T06:01:58Z" finished-at="2019-08-23T06:04:46Z">
+    <test name="Default test" duration-ms="170007" started-at="2019-08-23T06:34:43Z" finished-at="2019-08-23T06:37:33Z">
       <class name="com.hippo.testModules.validateCreateProspect">
-        <test-method status="PASS" signature="setDriver()[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="setDriver" is-config="true" duration-ms="152" started-at="2019-08-23T11:31:58Z" finished-at="2019-08-23T11:31:58Z">
+        <test-method status="PASS" signature="setDriver()[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="setDriver" is-config="true" duration-ms="156" started-at="2019-08-23T12:04:43Z" finished-at="2019-08-23T12:04:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setDriver -->
-        <test-method status="PASS" signature="loadApp()[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="loadApp" is-config="true" duration-ms="17125" started-at="2019-08-23T11:31:58Z" finished-at="2019-08-23T11:32:15Z">
+        <test-method status="PASS" signature="loadApp()[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="loadApp" is-config="true" duration-ms="19484" started-at="2019-08-23T12:04:43Z" finished-at="2019-08-23T12:05:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadApp -->
-        <test-method status="PASS" signature="initiMethods(java.lang.reflect.Method)[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="initiMethods" is-config="true" duration-ms="4" started-at="2019-08-23T11:32:15Z" finished-at="2019-08-23T11:32:15Z">
+        <test-method status="PASS" signature="initiMethods(java.lang.reflect.Method)[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="initiMethods" is-config="true" duration-ms="13" started-at="2019-08-23T12:05:03Z" finished-at="2019-08-23T12:05:03Z">
           <params>
             <param index="0">
               <value>
@@ -26,15 +26,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initiMethods -->
-        <test-method status="PASS" signature="assignTestCategory()[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="assignTestCategory" is-config="true" duration-ms="2" started-at="2019-08-23T11:32:15Z" finished-at="2019-08-23T11:32:15Z">
+        <test-method status="PASS" signature="assignTestCategory()[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="assignTestCategory" is-config="true" duration-ms="19" started-at="2019-08-23T12:05:03Z" finished-at="2019-08-23T12:05:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- assignTestCategory -->
-        <test-method status="PASS" signature="sendSampleToEmail()[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="sendSampleToEmail" duration-ms="149840" started-at="2019-08-23T11:32:15Z" finished-at="2019-08-23T11:34:45Z">
+        <test-method status="PASS" signature="sendSampleToEmail()[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="sendSampleToEmail" duration-ms="149436" started-at="2019-08-23T12:05:03Z" finished-at="2019-08-23T12:07:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- sendSampleToEmail -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="getResult" is-config="true" duration-ms="11" started-at="2019-08-23T11:34:45Z" finished-at="2019-08-23T11:34:45Z">
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="getResult" is-config="true" duration-ms="8" started-at="2019-08-23T12:07:32Z" finished-at="2019-08-23T12:07:32Z">
           <params>
             <param index="0">
               <value>
@@ -45,11 +45,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="windUp()[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="windUp" is-config="true" duration-ms="1143" started-at="2019-08-23T11:34:45Z" finished-at="2019-08-23T11:34:46Z">
+        <test-method status="PASS" signature="windUp()[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="windUp" is-config="true" duration-ms="1033" started-at="2019-08-23T12:07:32Z" finished-at="2019-08-23T12:07:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- windUp -->
-        <test-method status="PASS" signature="clearAll()[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="clearAll" is-config="true" duration-ms="313" started-at="2019-08-23T11:34:46Z" finished-at="2019-08-23T11:34:47Z">
+        <test-method status="PASS" signature="clearAll()[pri:0, instance:com.hippo.testModules.validateCreateProspect@6d4b1c02]" name="clearAll" is-config="true" duration-ms="300" started-at="2019-08-23T12:07:33Z" finished-at="2019-08-23T12:07:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clearAll -->

@@ -1,8 +1,9 @@
 package com.hippo.pages;
 
-import org.junit.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import com.hippo.Utils.Utility;
 
@@ -19,6 +20,18 @@ public String getSubjectOfFirstMail() throws InterruptedException
 {
 	waitForElement(By.xpath("//div[@role='tabpanel']//tbody//tr[1]"));
 	return elementList(subject).get(1).getText();
+}
+
+public void openFirstMail() throws InterruptedException
+{
+	clickOn(element(By.xpath("//div[@role='tabpanel']//tbody//tr[1]")));
+	
+}
+
+public void isVideoDisplayed(String videoTemplate) throws InterruptedException
+{
+	Assert.assertTrue(element(By.xpath("//div[@class='adn ads']//div[text()='Click to watch video']")).isDisplayed(),"***FailurE: Video is not displayed");
+	Assert.assertTrue(element(By.xpath("//div[@class='adn ads']//div[text()='Click to watch video']//preceding-sibling::div")).getText().contains(videoTemplate),"***Failure: Selected Video Template is not present");
 }
 
 public void navigateGmail()

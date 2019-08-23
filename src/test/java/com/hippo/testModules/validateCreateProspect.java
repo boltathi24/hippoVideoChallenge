@@ -1,7 +1,7 @@
 package com.hippo.testModules;
 import java.util.HashMap;
+import java.util.List;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -13,6 +13,7 @@ import com.hippo.pages.GetStartedPage;
 import com.hippo.pages.HomePage;
 import com.hippo.pages.MarketingPage;
 import com.hippo.pages.gmailPage;
+import com.sun.jna.platform.unix.X11.XClientMessageEvent.Data;
 
 public class validateCreateProspect extends Utility{
 
@@ -56,7 +57,7 @@ public class validateCreateProspect extends Utility{
     {
     	marketingPage.login();
     	
-    	String postedSubj=homePage.sendSampleVideoToEmail("athi.raja24@gmail.com");
+    	List<String> postedData=homePage.sendSampleVideoToEmail("athi.raja24@gmail.com");
     	String currentTab=driver.getWindowHandle();
     	openNewTab();
     	switchTab();
@@ -67,7 +68,9 @@ public class validateCreateProspect extends Utility{
     	{
     	gmailPage.loginGmail();
     	String subjectFromGmail=gmailPage.getSubjectOfFirstMail();
-    	Assert.assertEquals(subjectFromGmail,postedSubj,"***Failure:message not yet reached");
+    	Assert.assertEquals(subjectFromGmail,postedData.get(1),"***Failure:message not yet reached");
+    	gmailPage.openFirstMail();
+    	gmailPage.isVideoDisplayed(postedData.get(0));
     	}
     	finally {
 			gmailPage.logOutGmail();
