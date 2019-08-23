@@ -11,6 +11,11 @@ import com.hippo.Utils.Utility;
 public class MarketingPage extends Utility {
 	
 	
+	public By loginLink=By.xpath("//a[text()='Login' and not(contains(@class,'disp-none'))]");
+	public By loginTxtBox=By.id("user_email");
+	public By pwdTxtBox=By.id("user_password");
+	public By signInBtn=By.name("commit");
+	
 	public MarketingPage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -29,6 +34,15 @@ public class MarketingPage extends Utility {
 
 	public void setCompanyMail(String companyMail) {
 		this.companyMail = companyMail;
+	}
+	
+	public void login() throws InterruptedException
+	{
+		element(loginLink).click();
+		element(loginTxtBox).sendKeys("athithya24@gmail.com");
+		element(pwdTxtBox).sendKeys("ZohoTest@24");
+		element(signInBtn).click();
+		tryElementToBeGone(signInBtn);
 	}
 
 	public void doNewsignUp() throws InterruptedException

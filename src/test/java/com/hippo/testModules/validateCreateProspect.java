@@ -1,6 +1,7 @@
 package com.hippo.testModules;
 import java.util.HashMap;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -11,6 +12,7 @@ import com.hippo.Utils.Utility;
 import com.hippo.pages.GetStartedPage;
 import com.hippo.pages.HomePage;
 import com.hippo.pages.MarketingPage;
+import com.hippo.pages.gmailPage;
 
 public class validateCreateProspect extends Utility{
 
@@ -22,6 +24,8 @@ public class validateCreateProspect extends Utility{
 		marketingPage=new MarketingPage(driver);
 		homePage=new HomePage(driver);
 		getStartedPage=new GetStartedPage(driver);
+		gmailPage=new gmailPage(driver);
+		
 			}
 	
 	@BeforeMethod
@@ -34,8 +38,7 @@ public class validateCreateProspect extends Utility{
     public void validateNewProspectCreation() throws InterruptedException 
     {      
      marketingPage.doNewsignUp();
-     homePage.createProspect();
-     
+     homePage.createProspect(); 
      
      
      Assert.assertEquals(driver.getCurrentUrl(),"https://www.hippovideo.io/video/getting-started","***Failure: URL redirectiton is incorrect After new sign up");
@@ -47,10 +50,47 @@ public class validateCreateProspect extends Utility{
      Assert.assertTrue(getStartedPage.isPageLoaded(),"***Failure: Page not loaded Properly After successfull sign Up");
      
     }
+    
+    @Test
+    public void sendSampleToEmail() throws InterruptedException
+    {
+    	marketingPage.login();
+    	
+    	String postedSubj=homePage.sendSampleVideoToEmail("athi.raja24@gmail.com");
+    	String currentTab=driver.getWindowHandle();
+    	openNewTab();
+    	switchTab();
+    	gmailPage.navigateGmail();
+    	
+    	Thread.sleep(90000);
+    	try
+    	{
+    	gmailPage.loginGmail();
+    	String subjectFromGmail=gmailPage.getSubjectOfFirstMail();
+    	Assert.assertEquals(subjectFromGmail,postedSubj,"***Failure:message not yet reached");
+    	}
+    	finally {
+			gmailPage.logOutGmail();
+		}
+    	
+    	
+    	
+    	closeTab();
+    	switchTab(currentTab);
+    	
+    	
+    }
 
     @AfterClass
 	public void windUp() {
-		
+		try
+		{
+			homePage.logOutHippo();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		driver.close();
 	}
 

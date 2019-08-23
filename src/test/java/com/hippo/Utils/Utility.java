@@ -3,10 +3,13 @@ package com.hippo.Utils;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -31,15 +34,35 @@ public class Utility extends BaseClass
 	
 	 public void waitForElement(By by) throws InterruptedException 
 	 {
-     int timeToWait = 15;
+     int timeToWait = 40;
 	WebDriverWait wait = new WebDriverWait(driver, timeToWait);
 	wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 	}
+	 
+	 public WebElement findElement(By by)
+	 {
+		 return driver.findElement(by);
+	 }
 	
 	 public WebElement element(By by) throws InterruptedException
 	 {
 		 waitForElement(by);
 		 return driver.findElement(by);
+	 }
+	 public void clickOn(WebElement element)
+	 {
+		 JavascriptExecutor executor = (JavascriptExecutor)driver;
+		 executor.executeScript("arguments[0].click();", element);
+	 }
+	 public List<WebElement> elementList(By by)
+	 {
+		 return driver.findElements(by);
+	 }
+	 
+	 public void move(WebElement element)
+	 {
+		 Actions a=new Actions(driver);
+		 a.moveToElement(element).perform();
 	 }
 	 
 
@@ -80,6 +103,33 @@ public class Utility extends BaseClass
 
 			String RS = builder.toString();
 			return RS;
+		}
+		
+		public void switchTab(String tabName)
+		{
+			driver.switchTo().window(tabName);
+		}
+		
+		public void switchTab()
+		{
+			for(String tab:driver.getWindowHandles())
+			{
+				driver.switchTo().window(tab);
+			}
+		}
+		
+		public void closeTab()
+		{
+			driver.close();
+		}
+		public void openNewTab()
+		{
+
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			 
+			 executor.executeScript("window.open()");
+
+
 		}
 
 }

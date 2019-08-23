@@ -22,6 +22,7 @@ import com.hippo.Utils.ExtentReporter;
 import com.hippo.pages.GetStartedPage;
 import com.hippo.pages.HomePage;
 import com.hippo.pages.MarketingPage;
+import com.hippo.pages.gmailPage;
 
 public class BaseClass {
 
@@ -29,6 +30,8 @@ public class BaseClass {
 	public MarketingPage marketingPage=null;
 	public HomePage homePage=null;
 	public GetStartedPage getStartedPage=null;
+
+	public gmailPage gmailPage=null;
 	
 	@BeforeSuite
 	public void setDriver()
